@@ -120,9 +120,34 @@ from fractions import Fraction
 x = Fraction(1, 3)
 y = Fraction(2, 4)
 
-
 #
 import decimal
 decimal.getcontext().prec = 2
 x = decimal.Decimal(1)/decimal.Decimal(3)
 y = decimal.Decimal(str(1/3)) + decimal.Decimal(str(2/3))
+
+#
+x = (2.5).as_integer_ratio()
+print(type(x))
+
+f = 2.5
+z = Fraction(*f.as_integer_ratio())
+
+y = float(z)
+type(y)
+
+Fraction.from_float(1.75)
+Fraction(*(1.75).as_integer_ratio())
+
+#
+x = Fraction(*(0.5).as_integer_ratio())
+
+y = x + 2 # = Fraction
+y = x + 1/3 # = float
+y = x + 2.8 # = float
+
+#
+a = Fraction(*(4/3).as_integer_ratio())
+a = Fraction(*(4.0/3).as_integer_ratio())
+
+b = a.limit_denominator()
