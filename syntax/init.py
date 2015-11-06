@@ -65,12 +65,12 @@ while not d == 1:
     d -= 1
 print(result)
 
-def factorial(d):
-    result = 1
-    while not d == 1:
-        result *= d
-        d -= 1
-    return result
+def factorial(digit):
+    r = 1
+    while not digit == 1:
+        r *= digit
+        digit -= 1
+    return r
 
 #
 l = [1, 2, 3, 4]
