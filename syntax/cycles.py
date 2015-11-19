@@ -1,4 +1,3 @@
-
 for ((a, b), c) in [((1, 2), 3), ((4, 5), 6)]:
     print(a, b, c)
 
@@ -98,7 +97,7 @@ while l:
     i += 1
     l -= 1
 
-L = [x+1 for x in L]
+L = [x + 1 for x in L]
 
 #
 L1 = [1, 2, 3, 4]
@@ -107,12 +106,12 @@ L2 = [5, 6, 7, 8]
 L3 = list(zip(L1, L2))
 
 for (a, b) in zip(L1, L2):
-    print(a + b, "---", a**b)
+    print(a + b, "---", a ** b)
 
 i = 0
 l = len(L1)
 while i < l:
-    print(L1[i] + L2[i], '---', L1[i]**L2[i])
+    print(L1[i] + L2[i], '---', L1[i] ** L2[i])
     i += 1
 
 L4 = [9, 10]
@@ -123,3 +122,5 @@ L5 = [1, 2, 3]
 S1 = 'abc'
 T1 = (4, 5, 6)
 L = list(zip(L5, S1, T1))
+
+L7 = map(None, L5, S1)
