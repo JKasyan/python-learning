@@ -76,3 +76,8 @@ def factorial(digit):
 l = [1, 2, 3, 4]
 a, b, c, *d = l
 a, b, c, d, *e = l
+
+def factorial(digit):
+    if digit < 1:
+        return 1
+    return digit * factorial(digit - 1)
