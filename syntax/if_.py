@@ -75,3 +75,17 @@ if a > 0 and \
 if (a > 0 and
 b < 30):
     print('Hello')
+
+#
+S = (
+    'aaaa'
+    'bbbb'
+    'cccc'
+)
+print(S)
+
+if 1: print('python')
+
+a = [1, 2, 3]
+b = (1, 2)
+result = a > b
