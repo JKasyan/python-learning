@@ -124,3 +124,17 @@ T1 = (4, 5, 6)
 L = list(zip(L5, S1, T1))
 
 L7 = map(None, L5, S1)
+
+#
+s = 'python'
+offset = 0
+for i in s:
+    print(i, offset)
+    offset += 1
+
+for (c, i) in enumerate(s):
+    print(c, i)
+
+e = enumerate(s)
+print(e.__next__())
+next(e)
