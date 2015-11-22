@@ -45,3 +45,27 @@ def f(a, b):
 
 f(1, 2)
 f(*[1, 2])
+
+#
+L10 = list(zip('abc', 'def'))
+
+#
+r = range(0, 10, 2)
+L11 = r[2:4]
+
+def square(x):
+    return x**2
+
+m = map(square, (1, 2, 3, 4))
+z = zip((0, 1, 2), (3, 4, 5))
+
+def test(digit):
+    return digit > 0
+
+L12 = filter(test, [1, -20, 5, -4, 0])
+
+def f(d):
+    return d % 2
+
+L13 = [1, 2, 3, 4, 5, 6]
+filter(f, L13)
