@@ -35,3 +35,6 @@ def f4():
 
 f4()
 print(var)
+
+###
+global_var = 100

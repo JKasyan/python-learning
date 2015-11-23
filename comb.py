@@ -53,3 +53,5 @@ def intersect(seq_one, seq_two):
 
 def intersect(seq_one, seq_two):
     return [x for x in seq_one if x in seq_two]
+
+global_var = 100
