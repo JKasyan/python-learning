@@ -54,4 +54,9 @@ def intersect(seq_one, seq_two):
 def intersect(seq_one, seq_two):
     return [x for x in seq_one if x in seq_two]
 
-global_var = 100
+def is_odd(d):
+    """
+    Check the length of
+    sequence is odd
+    """
+    return len(d) & 0x01
