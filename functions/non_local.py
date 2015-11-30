@@ -132,3 +132,44 @@ F = tester(0)
 F('spam')
 F('ham')
 
+"""
+Saving info
+"""
+
+class tester1:
+
+    def __init__(self, start):
+        self.state = start
+
+    def nested(self, label):
+        print(label, self.state)
+        self.state += 1
+
+F1 = tester1(0)
+F1.nested("spam")
+F1.nested("ham")
+state = F1.state
+
+
+class tester2:
+
+    def __init__(self, start):
+        self.state = start
+
+    def __call__(self, label):
+        print(label, self.state)
+        self.state += 1
+
+F2 = tester2(0)
+F2("python")
+
+"""
+Attributes of functions
+"""
+
+def tester3(start):
+    def nested(label):
+        print(nested.state, label)
+        nested.state += 1
+    nested.state = start
+    return nested
