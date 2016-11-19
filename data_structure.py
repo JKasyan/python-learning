@@ -1,4 +1,3 @@
-
 class LinkedList:
     def __init__(self):
         self.tail = LinkedList.Entry(None, None, None)
@@ -8,7 +7,7 @@ class LinkedList:
         if self.size == 0:
             return None
         last = self.tail.prev
-        last.prev.next_el = self.tail
+        last.prev.next_el = last.next_el
         self.tail.prev = last.prev
         last.next_el = None
         last.prev = None
@@ -26,6 +25,21 @@ class LinkedList:
             entry = LinkedList.Entry(last, el, self.tail)
             last.next_el = entry
             self.tail.prev = entry
+        self.size += 1
+
+    def add_by_index(self, el, index):
+        if 0 < index > self.size - 1:
+            raise ArithmeticError('index must be more 0 and less ' + str(self.size))
+        ref = self.tail.next_el
+        if index < self.size / 2:
+            for number in range(0, index):
+                ref = ref.next_el
+        else:
+            for number in range(0, self.size - index - 1):
+                ref = ref.prev
+        entry = LinkedList.Entry(ref, el, ref.next_el)
+        ref.next_el.prev = entry
+        ref.next_el = entry
         self.size += 1
 
     def get(self, index):
@@ -48,24 +62,19 @@ class LinkedList:
     def remove(self, index):
         if 0 < index > self.size - 1:
             raise ArithmeticError('index must be more 0 and less ' + str(self.size))
+        ref = self.tail.next_el
         if index < self.size / 2:
-            ref = self.tail.next_el
             for number in range(0, index):
                 ref = ref.next_el
-            ref.prev.next_el = ref.next_el
-            ref.next_el.prev = ref.prev
-            ref.prev = None
-            ref.next_el = None
-            return ref.value
         else:
-            ref = self.tail.prev
             for number in range(0, self.size - index - 1):
                 ref = ref.prev
-            ref.prev.next_el = ref.next_el
-            ref.next_el.prev = ref.prev
-            ref.prev = None
-            ref.next_el = None
-            return ref.value
+        ref.prev.next_el = ref.next_el
+        ref.next_el.prev = ref.prev
+        ref.prev = None
+        ref.next_el = None
+        self.size -= 1
+        return ref.value
 
     def to_list(self):
         l = []
@@ -79,6 +88,8 @@ class LinkedList:
 
     def __str__(self):
         text = 'LinkedList[ '
+        if self.size == 0:
+            return text + ']'
         ref = self.tail.next_el
         for number in range(0, self.size):
             text += str(ref.value) + ', '
@@ -99,12 +110,11 @@ class LinkedList:
 
 
 link_list = LinkedList()
-for i in 'python':
-    link_list.add(i)
-link_list.add({'a': 1, 'b': 2})
-print(link_list.remove(1))
+link_list.add(1)
+link_list.add(2)
+link_list.add(4)
+link_list.add_by_index(3, 1)
 print(link_list)
-print(link_list.get(link_list.size - 1))
-print(link_list.to_list())
-# print(link_list.pop())
-print(link_list.tail is None)
+#
+#
+#
