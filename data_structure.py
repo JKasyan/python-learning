@@ -3,6 +3,9 @@ class LinkedList:
         self.tail = LinkedList.Entry(None, None, None)
         self.size = 0
 
+    def __len__(self):
+        return self.size
+
     def pop(self):
         if self.size == 0:
             return None
@@ -13,6 +16,14 @@ class LinkedList:
         last.prev = None
         self.size -= 1
         return last.value
+
+    def __contains__(self, item):
+        ref = self.tail.next_el
+        for i in range(0, self.size):
+            if ref.value == item:
+                return True
+            ref = ref.next_el
+        return False
 
     def add(self, el):
         # first element
@@ -42,7 +53,7 @@ class LinkedList:
         ref.next_el = entry
         self.size += 1
 
-    def get(self, index):
+    def __getitem__(self, index):
         if 0 < index > self.size - 1:
             raise ArithmeticError('index must be more 0 and less ' + str(self.size))
         if index < self.size / 2:
@@ -59,7 +70,7 @@ class LinkedList:
     """
         Remove by index
     """
-    def remove(self, index):
+    def __delitem__(self, index):
         if 0 < index > self.size - 1:
             raise ArithmeticError('index must be more 0 and less ' + str(self.size))
         ref = self.tail.next_el
@@ -114,7 +125,10 @@ link_list.add(1)
 link_list.add(2)
 link_list.add(4)
 link_list.add_by_index(3, 1)
-print(link_list)
+del link_list[0]
+print('Linked list = ', link_list)
+print('__len__ ', len(link_list))
+print('__contains__ ', 2 in link_list, 'Python' in link_list)
 #
 #
 #
